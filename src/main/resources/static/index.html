@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imomjon Riskiboev - Java Backend Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #3b82f6;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        .download-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #2563eb;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            padding: 4px;
+            margin: 0 auto 2rem;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #f1f5f9;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #3b82f6;
+            border: 2px solid #3b82f6;
+        }
+
+        .btn-outline:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+        }
+
+        /* Skills Section */
+        .bg-muted {
+            background: #f8fafc;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            text-align: center;
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .skill-icon.blue { background: #3b82f6; }
+        .skill-icon.green { background: #10b981; }
+        .skill-icon.purple { background: #8b5cf6; }
+        .skill-icon.orange { background: #f59e0b; }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .badge {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            overflow: hidden;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .project-image i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .project-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Education Section */
+        .education-item {
+            margin-bottom: 2rem;
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .education-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-school {
+            color: #64748b;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-details {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        .year-badge {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Contact Section */
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 1px solid #e2e8f0;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #3b82f6;
+            color: white;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+    <nav class="container">
+        <a href="#" class="logo">
+            <i class="fas fa-code"></i> Imomjon.dev
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="/files/CV.pdf" download="Imomjon_CV.pdf" cclass="download-btn">
+            Download CV
+        </a>
+
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="profile-img">
+            <img src="/images/rasm.jpg" alt="Imomjon Riskiboev">
+        </div>
+        <h1>Imomjon Riskiboev</h1>
+        <p class="subtitle">Java Backend Developer</p>
+        <p class="description">
+            PDP Academy bitiruvchisi. Spring Boot, RESTful APIs va PostgreSQL bilan tajribali.
+            Real-world muammolarni kod orqali yechishni yaxshi ko'raman.
+        </p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Contact Me
+            </a>
+            <a href="https://github.com/imomjon01" class="btn btn-outline">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="card fade-in">
+            <div class="about-content">
+                <div>
+                    <p style="margin-bottom: 1rem; color: #64748b;">
+                        Men ishtiyoqli va motivatsiyali Java Backend Developeriman. Yaqinda PDP Academy'da
+                        backend development kursini muvaffaqiyatli tugatdim. Java, Spring Boot, JPA va
+                        PostgreSQL yordamida RESTful API'lar yaratishda amaliy tajribaga egaman.
+                    </p>
+                    <p style="color: #64748b;">
+                        Real-world muammolarni kod orqali yechishni yaxshi ko'raman va o'z ko'nikmalarimni
+                        doimiy ravishda rivojlantirishga intilaman. Maqsadim professional software engineer
+                        bo'lish va ta'sirli loyihalarga hissa qo'shishdir.
+                    </p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Toshkent, O'zbekiston</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+998 94 569 05 69</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>imomjon.dev@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>imomjon.uz</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="bg-muted">
+    <div class="container">
+        <h2 class="section-title fade-in">Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="card skill-card fade-in">
+                <div class="skill-icon blue">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3>Core Technologies</h3>
+                <div class="badges">
+                    <span class="badge">Java Core</span>
+                    <span class="badge">Spring</span>
+                    <span class="badge">Spring Boot</span>
+                    <span class="badge">MVC</span>
+                    <span class="badge">JSP</span>
+                </div>
+            </div>
+
+            <div class="card skill-card fade-in">
+                <div class="skill-icon green">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Databases</h3>
+                <div class="badges">
+                    <span class="badge">PostgreSQL</span>
+                    <span class="badge">MySQL</span>
+                    <span class="badge">MongoDB</span>
+                    <span class="badge">Redis</span>
+                </div>
+            </div>
+
+            <div class="card skill-card fade-in">
+                <div class="skill-icon purple">
+                    <i class="fas fa-server"></i>
+                </div>
+                <h3>APIs & Tools</h3>
+                <div class="badges">
+                    <span class="badge">REST API</span>
+                    <span class="badge">Swagger</span>
+                    <span class="badge">Telegram Bot</span>
+                    <span class="badge">Unit Testing</span>
+                </div>
+            </div>
+
+            <div class="card skill-card fade-in">
+                <div class="skill-icon orange">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <h3>DevOps & Other</h3>
+                <div class="badges">
+                    <span class="badge">Docker</span>
+                    <span class="badge">Kubernetes</span>
+                    <span class="badge">AWS</span>
+                    <span class="badge">Kafka</span>
+                    <span class="badge">Git/GitHub</span>
+                    <span class="badge">JavaScript</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title fade-in">Personal Projects</h2>
+        <div class="projects-grid">
+            <div class="card project-card fade-in">
+                <div class="project-image">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3 class="project-title">E-commerce Web Application</h3>
+                <p class="project-description">
+                    To'liq e-commerce platformasi - foydalanuvchi ro'yxatdan o'tishi, login,
+                    mahsulotlar ro'yxati va buyurtma berish imkoniyatlari bilan.
+                </p>
+                <div class="badges" style="margin-bottom: 1rem;">
+                    <span class="badge">Java</span>
+                    <span class="badge">Spring Boot</span>
+                    <span class="badge">Spring Security</span>
+                    <span class="badge">PostgreSQL</span>
+                    <span class="badge">JSP</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="https://github.com/imomjon01/E-commerce" class="btn btn-outline">
+                        <i class="fas fa-external-link-alt"></i> View
+                    </a>
+                </div>
+            </div>
+
+            <div class="card project-card fade-in">
+                <div class="project-image" style="background: linear-gradient(135deg, #10b981, #3b82f6);">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="project-title">Ipe-School Management System</h3>
+                <p class="project-description">
+                    Ta'lim markazi uchun boshqaruv tizimi - talabalar, o'qituvchilar va
+                    kurslarni boshqarish uchun.
+                </p>
+                <div class="badges" style="margin-bottom: 1rem;">
+                    <span class="badge">Spring Boot</span>
+                    <span class="badge">REST API</span>
+                    <span class="badge">PostgreSQL</span>
+                    <span class="badge">HTML/CSS</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="https://github.com/imomjon01/IPE_SCHOOL" class="btn btn-outline">
+                        <i class="fas fa-external-link-alt"></i> View
+                    </a>
+                </div>
+            </div>
+
+            <div class="card project-card fade-in">
+                <div class="project-image" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3 class="project-title">Trello Clone</h3>
+                <p class="project-description">
+                    Trello-ga o'xshash task management web ilovasi. MVC arxitekturasi va
+                    CRUD operatsiyalari bilan.
+                </p>
+                <div class="badges" style="margin-bottom: 1rem;">
+                    <span class="badge">Spring MVC</span>
+                    <span class="badge">JSP</span>
+                    <span class="badge">PostgreSQL</span>
+                    <span class="badge">CRUD</span>
+                </div>
+                <div class="project-buttons">
+                    <a href="https://github.com/imomjon01/Trello_Project" class="btn btn-outline">
+                        <i class="fas fa-external-link-alt"></i> View
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="bg-muted">
+    <div class="container">
+        <h2 class="section-title fade-in">Education</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div class="card education-item fade-in">
+                <div class="education-header">
+                    <div>
+                        <h3 class="education-title">Bachelor of Computer Science and Software Engineering</h3>
+                        <p class="education-school">National University of Uzbekistan</p>
+                        <p class="education-details">Faculty of Applied Mathematics and Intellectual Technologies (Online Program)</p>
+                    </div>
+                    <span class="year-badge">2022 - 2027</span>
+                </div>
+            </div>
+
+            <div class="card education-item fade-in">
+                <div class="education-header">
+                    <div>
+                        <h3 class="education-title">Java Backend Development</h3>
+                        <p class="education-school">PDP Academy</p>
+                    </div>
+                    <span class="year-badge">2024 - 2025</span>
+                </div>
+                <p style="color: #64748b;">
+                    Java Core, OOP, Spring Boot, RESTful APIs, PostgreSQL va real-world loyihalar
+                    yaratishni o'z ichiga olgan keng qamrovli Java Backend kursi muvaffaqiyatli tugatildi.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <p style="color: #64748b; margin-bottom: 2rem; font-size: 1.1rem;" class="fade-in">
+                Yangi loyihalar va hamkorlik imkoniyatlari haqida gaplashishga tayyorman. Menga xabar yuboring!
+            </p>
+            <div class="contact-buttons fade-in">
+                <a href="mailto:imomjon.dev@gmail.com" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> imomjon.dev@gmail.com
+                </a>
+                <a href="tel:+998945690569" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> +998 94 569 05 69
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Fade in animation on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Mobile menu toggle (if needed)
+    const mobileMenuToggle = () => {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    };
+
+    // Add active class to current section in navigation
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
+</body>
+</html>
