@@ -43,7 +43,7 @@
     </dependencies>
 
     <build>
-        <finalName>my-custom-cv</finalName>
+        <finalName>app</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
