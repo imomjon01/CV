@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="uz" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Imomjon Riskiboev - Java Backend Developer</title>
+
+  <!-- Improved Open Graph tags for better Telegram sharing -->
+  <meta property="og:title" content="Imomjon Riskiboev - Java Backend Developer">
+  <meta property="og:description" content="PDP Academy bitiruvchisi. Spring Boot, RESTful APIs va PostgreSQL bilan tajribali Java Backend Developer. Real-world loyihalar va professional tajriba.">
+  <meta property="og:image" content="https://imomjon.uz/images/portfolio-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Imomjon Riskiboev - Java Backend Developer Portfolio">
+  <meta property="og:url" content="https://imomjon.uz">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Imomjon Riskiboev Portfolio">
+
+  <!-- Enhanced Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Imomjon Riskiboev - Java Backend Developer">
+  <meta name="twitter:description" content="PDP Academy bitiruvchisi. Spring Boot, RESTful APIs va PostgreSQL bilan tajribali Java Backend Developer.">
+  <meta name="twitter:image" content="https://imomjon.uz/images/portfolio-preview.png">
+  <meta name="twitter:image:alt" content="Imomjon Riskiboev Portfolio">
+
+  <!-- Additional meta tags for better social sharing -->
+  <meta name="description" content="Imomjon Riskiboev - Java Backend Developer. PDP Academy bitiruvchisi. Spring Boot, RESTful APIs va PostgreSQL bilan tajribali.">
+  <meta name="keywords" content="Java Developer, Backend Developer, Spring Boot, PostgreSQL, REST API, Uzbekistan Developer">
+  <meta name="author" content="Imomjon Riskiboev">
+  <meta name="theme-color" content="#059669">
+
+  <!-- Telegram-specific meta tags -->
+  <meta property="telegram:channel" content="@imomjon.uz">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/favicon.ico" />
+
+  <!-- Font Awesome va Google Fonts -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--color-background)',
+            foreground: 'var(--color-foreground)',
+            card: 'var(--color-card)',
+            'card-foreground': 'var(--color-card-foreground)',
+            primary: 'var(--color-primary)',
+            'primary-foreground': 'var(--color-primary-foreground)',
+            secondary: 'var(--color-secondary)',
+            'secondary-foreground': 'var(--color-secondary-foreground)',
+            muted: 'var(--color-muted)',
+            'muted-foreground': 'var(--color-muted-foreground)',
+            accent: 'var(--color-accent)',
+            'accent-foreground': 'var(--color-accent-foreground)',
+            border: 'var(--color-border)',
+          },
+          fontFamily: {
+            'sans': ['Inter', 'sans-serif'],
+            'mono': ['JetBrains Mono', 'monospace'],
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'gradient': 'gradient 8s ease infinite',
+            'slide-up': 'slideUp 0.6s ease-out',
+            'slide-down': 'slideDown 0.3s ease-out',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            gradient: {
+              '0%, 100%': { backgroundPosition: '0% 50%' },
+              '50%': { backgroundPosition: '100% 50%' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            slideDown: {
+              '0%': { opacity: '0', transform: 'translateY(-10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --color-background: #fafafa;
+      --color-foreground: #18181b;
+      --color-card: #ffffff;
+      --color-card-foreground: #18181b;
+      --color-primary: #059669;
+      --color-primary-foreground: #ffffff;
+      --color-secondary: #ecfdf5;
+      --color-secondary-foreground: #18181b;
+      --color-muted: #f4f4f5;
+      --color-muted-foreground: #71717a;
+      --color-accent: #10b981;
+      --color-accent-foreground: #ffffff;
+      --color-border: #e4e4e7;
+    }
+
+    .dark {
+      --color-background: #09090b;
+      --color-foreground: #fafafa;
+      --color-card: #18181b;
+      --color-card-foreground: #fafafa;
+      --color-primary: #10b981;
+      --color-primary-foreground: #ffffff;
+      --color-secondary: #1c1c1c;
+      --color-secondary-foreground: #fafafa;
+      --color-muted: #27272a;
+      --color-muted-foreground: #a1a1aa;
+      --color-accent: #34d399;
+      --color-accent-foreground: #ffffff;
+      --color-border: #27272a;
+    }
+
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-primary) var(--color-muted);
+    }
+
+    *::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: var(--color-muted);
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background: var(--color-primary);
+      border-radius: 4px;
+    }
+
+    body {
+      transition: background-color 0.4s ease, color 0.4s ease;
+      overflow-x: hidden;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+
+    .language-dropdown {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.2s ease;
+    }
+
+    .language-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .dark .glass-effect {
+      background: rgba(24, 24, 27, 0.8);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 50%, #06b6d4 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient 8s ease infinite;
+    }
+
+    .hero-gradient {
+      background: radial-gradient(ellipse at top, rgba(5, 150, 105, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+    }
+
+    .dark .hero-gradient {
+      background: radial-gradient(ellipse at top, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(52, 211, 153, 0.1) 0%, transparent 50%);
+    }
+
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    .dark .card-hover:hover {
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .skill-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .skill-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .typing-effect {
+      border-right: 2px solid var(--color-primary);
+      animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .floating-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .floating-shapes span {
+      position: absolute;
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: var(--color-primary);
+      opacity: 0.1;
+      border-radius: 50%;
+      animation: float 15s infinite;
+    }
+
+    .floating-shapes span:nth-child(1) { left: 10%; animation-delay: 0s; width: 80px; height: 80px; }
+    .floating-shapes span:nth-child(2) { left: 20%; animation-delay: 2s; width: 40px; height: 40px; }
+    .floating-shapes span:nth-child(3) { left: 70%; animation-delay: 4s; width: 60px; height: 60px; }
+    .floating-shapes span:nth-child(4) { left: 80%; animation-delay: 1s; width: 30px; height: 30px; }
+    .floating-shapes span:nth-child(5) { left: 50%; animation-delay: 3s; width: 50px; height: 50px; }
+
+    /* Improved mobile styles */
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.1;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+    }
+
+    /* Loading animation */
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      background: var(--color-background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+
+    .page-loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid var(--color-muted);
+      border-top-color: var(--color-primary);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-background text-foreground font-sans">
+
+<!-- Page Loader -->
+<div id="pageLoader" class="page-loader">
+  <div class="loader-spinner"></div>
+</div>
+
+<!-- Header -->
+<header class="fixed top-0 w-full glass-effect border-b border-border z-50">
+  <nav class="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+    <div class="flex justify-between items-center">
+      <a href="#" class="flex items-center gap-2 text-xl sm:text-2xl font-bold text-foreground group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-lg font-bold group-hover:scale-110 transition-transform">
+          I
+        </div>
+        <span class="hidden sm:inline" data-key="logo">Imomjon.dev</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden lg:flex items-center gap-1">
+        <li><a href="#about" class="px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all" data-key="nav-about">Men haqimda</a></li>
+        <li><a href="#skills" class="px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all" data-key="nav-skills">Ko'nikmalar</a></li>
+        <li><a href="#projects" class="px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all" data-key="nav-projects">Loyihalar</a></li>
+        <li><a href="#education" class="px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all" data-key="nav-education">Ta'lim</a></li>
+        <li><a href="#contact" class="px-4 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all" data-key="nav-contact">Aloqa</a></li>
+      </ul>
+
+      <!-- Header Controls -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Language Switcher -->
+        <div class="relative">
+          <button id="languageBtn" class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-muted hover:bg-muted/80 text-sm font-medium transition-colors">
+            <i class="fas fa-globe text-primary"></i>
+            <span id="currentLang">UZ</span>
+            <i class="fas fa-chevron-down text-xs text-muted-foreground"></i>
+          </button>
+          <div id="languageDropdown" class="language-dropdown absolute right-0 mt-2 bg-card border border-border rounded-xl shadow-xl py-2 min-w-[100px] z-50">
+            <button onclick="changeLanguage('uz')" class="flex items-center gap-2 w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors">
+              <span class="w-6 text-center">🇺🇿</span> O'zbek
+            </button>
+            <button onclick="changeLanguage('en')" class="flex items-center gap-2 w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors">
+              <span class="w-6 text-center">🇺🇸</span> English
+            </button>
+            <button onclick="changeLanguage('ru')" class="flex items-center gap-2 w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors">
+              <span class="w-6 text-center">🇷🇺</span> Русский
+            </button>
+          </div>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <button id="darkModeToggle" class="w-10 h-10 rounded-lg bg-muted hover:bg-muted/80 flex items-center justify-center transition-all hover:scale-105">
+          <i class="fas fa-moon text-lg dark:hidden"></i>
+          <i class="fas fa-sun text-lg hidden dark:block text-yellow-400"></i>
+        </button>
+
+        <!-- Download CV Button -->
+        <a href="/files/CV.pdf" download="Imomjon_CV.pdf" class="hidden md:inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2.5 rounded-lg font-medium btn-primary hover:bg-primary/90 transition-colors">
+          <i class="fas fa-download"></i>
+          <span data-key="download-cv">CV yuklab olish</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="lg:hidden w-10 h-10 rounded-lg bg-muted hover:bg-muted/80 flex items-center justify-center transition-colors">
+          <i class="fas fa-bars text-lg"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="mobile-menu lg:hidden fixed inset-y-0 left-0 w-72 bg-card border-r border-border z-50 shadow-2xl">
+    <div class="p-5">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-xl font-bold gradient-text" data-key="logo">Imomjon.dev</span>
+        <button id="closeMobileMenu" class="w-10 h-10 rounded-lg bg-muted hover:bg-muted/80 flex items-center justify-center transition-colors">
+          <i class="fas fa-times text-lg"></i>
+        </button>
+      </div>
+      <ul class="space-y-2">
+        <li><a href="#about" class="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all"><i class="fas fa-user w-5"></i><span data-key="nav-about">Men haqimda</span></a></li>
+        <li><a href="#skills" class="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all"><i class="fas fa-code w-5"></i><span data-key="nav-skills">Ko'nikmalar</span></a></li>
+        <li><a href="#projects" class="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all"><i class="fas fa-folder w-5"></i><span data-key="nav-projects">Loyihalar</span></a></li>
+        <li><a href="#education" class="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all"><i class="fas fa-graduation-cap w-5"></i><span data-key="nav-education">Ta'lim</span></a></li>
+        <li><a href="#contact" class="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-all"><i class="fas fa-envelope w-5"></i><span data-key="nav-contact">Aloqa</span></a></li>
+      </ul>
+      <div class="mt-8 pt-8 border-t border-border">
+        <a href="/files/CV.pdf" download="Imomjon_CV.pdf" class="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-4 py-3 rounded-lg font-medium btn-primary hover:bg-primary/90 transition-colors w-full">
+          <i class="fas fa-download"></i>
+          <span data-key="download-cv">CV yuklab olish</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div id="mobileMenuOverlay" class="fixed inset-0 bg-black/50 z-40 opacity-0 invisible transition-all lg:hidden"></div>
+
+<!-- Hero Section -->
+<section class="min-h-screen flex items-center justify-center pt-20 pb-16 px-4 hero-gradient relative overflow-hidden">
+  <div class="floating-shapes">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="container mx-auto text-center relative z-10">
+    <div class="animate-slide-up">
+      <!-- Profile Image -->
+      <div class="relative w-36 h-36 sm:w-44 sm:h-44 mx-auto mb-8">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary via-accent to-cyan-400 rounded-full animate-pulse-slow blur-xl opacity-50"></div>
+        <div class="relative w-full h-full rounded-full p-1 bg-gradient-to-br from-primary via-accent to-cyan-400">
+          <img src="/images/rasm.jpg" alt="Imomjon Riskiboev" class="w-full h-full rounded-full object-cover bg-muted border-4 border-card">
+        </div>
+        <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-card rounded-full border-4 border-background flex items-center justify-center shadow-lg">
+          <span class="text-2xl">👨‍💻</span>
+        </div>
+      </div>
+
+      <!-- Name -->
+      <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 gradient-text" data-key="hero-name">
+        Imomjon Riskiboev
+      </h1>
+
+      <!-- Title with typing effect -->
+      <div class="flex items-center justify-center gap-2 mb-6">
+        <span class="w-12 h-0.5 bg-gradient-to-r from-transparent to-primary"></span>
+        <p class="text-xl sm:text-2xl md:text-3xl text-muted-foreground font-medium" data-key="hero-title">
+          Java Backend Developer
+        </p>
+        <span class="w-12 h-0.5 bg-gradient-to-l from-transparent to-primary"></span>
+      </div>
+
+      <!-- Description -->
+      <p class="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed px-4" data-key="hero-description">
+        PDP Academy bitiruvchisi. Spring Boot, RESTful APIs va PostgreSQL bilan tajribali. Real-world muammolarni kod orqali yechishni yaxshi ko'raman.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center px-4">
+        <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold btn-primary hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30">
+          <i class="fas fa-envelope"></i>
+          <span data-key="contact-me">Bog'lanish</span>
+        </a>
+        <a href="https://github.com/imomjon01" target="_blank" class="inline-flex items-center justify-center gap-2 border-2 border-border text-foreground px-8 py-4 rounded-xl font-semibold hover:bg-muted hover:border-primary transition-all">
+          <i class="fab fa-github text-xl"></i>
+          <span>GitHub</span>
+        </a>
+      </div>
+
+      <!-- Social Links -->
+      <div class="flex justify-center gap-4 mt-10">
+        <a href="https://github.com/imomjon01" target="_blank" class="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary hover:scale-110 transition-all shadow-sm">
+          <i class="fab fa-github text-xl"></i>
+        </a>
+        <a href="https://t.me/Imomjon" target="_blank" class="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary hover:scale-110 transition-all shadow-sm">
+          <i class="fab fa-telegram text-xl"></i>
+        </a>
+        <a href="https://instagram.com/_imomjon" target="_blank" class="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary hover:scale-110 transition-all shadow-sm">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://linkedin.com/in/imomjon" target="_blank" class="w-12 h-12 rounded-xl bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary hover:scale-110 transition-all shadow-sm">
+          <i class="fab fa-linkedin text-xl"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <a href="#about" class="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+        <span class="text-sm font-medium">Pastga</span>
+        <i class="fas fa-chevron-down"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="py-20 sm:py-28 px-4">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16 fade-in">
+      <span class="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+        <i class="fas fa-user mr-2"></i>Tanishuv
+      </span>
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold" data-key="about-title">Men haqimda</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-5 gap-8 items-start">
+      <!-- Info Cards -->
+      <div class="lg:col-span-2 space-y-4 fade-in">
+        <div class="bg-card rounded-2xl p-6 border border-border card-hover">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+              <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+            </div>
+            <div>
+              <p class="text-sm text-muted-foreground">Joylashuv</p>
+              <p class="font-semibold" data-key="location">Toshkent, O'zbekiston</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-card rounded-2xl p-6 border border-border card-hover">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+              <i class="fas fa-phone text-accent text-xl"></i>
+            </div>
+            <div>
+              <p class="text-sm text-muted-foreground">Telefon</p>
+              <a href="tel:+998945690569" class="font-semibold hover:text-primary transition-colors">+998 94 569 05 69</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-card rounded-2xl p-6 border border-border card-hover">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+              <i class="fas fa-envelope text-cyan-500 text-xl"></i>
+            </div>
+            <div>
+              <p class="text-sm text-muted-foreground">Email</p>
+              <a href="mailto:imomjon.dev@gmail.com" class="font-semibold hover:text-primary transition-colors text-sm sm:text-base">imomjon.dev@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <a href="https://t.me/Imomjon" target="_blank" class="bg-card rounded-2xl p-5 border border-border card-hover flex flex-col items-center gap-2 text-center">
+            <i class="fab fa-telegram text-2xl text-[#0088cc]"></i>
+            <span class="text-sm font-medium">Telegram</span>
+          </a>
+          <a href="https://instagram.com/_imomjon" target="_blank" class="bg-card rounded-2xl p-5 border border-border card-hover flex flex-col items-center gap-2 text-center">
+            <i class="fab fa-instagram text-2xl text-[#E4405F]"></i>
+            <span class="text-sm font-medium">Instagram</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- About Text -->
+      <div class="lg:col-span-3 fade-in">
+        <div class="bg-card rounded-2xl p-8 border border-border h-full">
+          <div class="prose prose-lg max-w-none">
+            <p class="text-muted-foreground leading-relaxed mb-6" data-key="about-text1">
+              Men ishtiyoqli va motivatsiyali Java Backend Developeriman. Yaqinda PDP Academy'da backend development kursini muvaffaqiyatli tugatdim. Java, Spring Boot, JPA va PostgreSQL yordamida RESTful API'lar yaratishda amaliy tajribaga egaman.
+            </p>
+            <p class="text-muted-foreground leading-relaxed mb-8" data-key="about-text2">
+              Real-world muammolarni kod orqali yechishni yaxshi ko'raman va o'z ko'nikmalarimni doimiy ravishda rivojlantirishga intilaman. Maqsadim professional software engineer bo'lish va ta'sirli loyihalarga hissa qo'shishdir.
+            </p>
+          </div>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-4 pt-6 border-t border-border">
+            <div class="text-center">
+              <div class="text-3xl font-bold gradient-text mb-1">3+</div>
+              <div class="text-sm text-muted-foreground">Loyihalar</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold gradient-text mb-1">10+</div>
+              <div class="text-sm text-muted-foreground">Texnologiyalar</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold gradient-text mb-1">1+</div>
+              <div class="text-sm text-muted-foreground">Yil tajriba</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="py-20 sm:py-28 px-4 bg-muted/50">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16 fade-in">
+      <span class="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+        <i class="fas fa-code mr-2"></i>Texnik bilimlar
+      </span>
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold" data-key="skills-title">Ko'nikmalar va Texnologiyalar</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Core Technologies -->
+      <div class="bg-card rounded-2xl p-6 border border-border skill-card card-hover fade-in">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-5">
+          <i class="fas fa-code text-white text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-4" data-key="core-tech">Asosiy Texnologiyalar</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">Java Core</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">Spring</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">Spring Boot</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">MVC</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">JSP</span>
+        </div>
+      </div>
+
+      <!-- Databases -->
+      <div class="bg-card rounded-2xl p-6 border border-border skill-card card-hover fade-in">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-5">
+          <i class="fas fa-database text-white text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-4" data-key="databases">Ma'lumotlar bazalari</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">PostgreSQL</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">MySQL</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">MongoDB</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">Redis</span>
+        </div>
+      </div>
+
+      <!-- APIs & Tools -->
+      <div class="bg-card rounded-2xl p-6 border border-border skill-card card-hover fade-in">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-5">
+          <i class="fas fa-server text-white text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-4" data-key="apis-tools">API va Vositalar</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">REST API</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">Swagger</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">Telegram Bot</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">Unit Testing</span>
+        </div>
+      </div>
+
+      <!-- DevOps -->
+      <div class="bg-card rounded-2xl p-6 border border-border skill-card card-hover fade-in">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-5">
+          <i class="fas fa-cloud text-white text-2xl"></i>
+        </div>
+        <h3 class="font-bold text-lg mb-4" data-key="devops-other">DevOps va Boshqalar</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">Docker</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">AWS</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">Git/GitHub</span>
+          <span class="px-3 py-1.5 rounded-lg bg-muted text-sm font-medium">Kubernetes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-20 sm:py-28 px-4">
+  <div class="container mx-auto max-w-6xl">
+    <div class="text-center mb-16 fade-in">
+      <span class="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+        <i class="fas fa-folder-open mr-2"></i>Portfolio
+      </span>
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold" data-key="projects-title">Shaxsiy Loyihalar</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Project 1 -->
+      <div class="bg-card rounded-2xl overflow-hidden border border-border card-hover fade-in group">
+        <div class="relative h-48 bg-gradient-to-br from-primary via-accent to-cyan-400 flex items-center justify-center overflow-hidden">
+          <i class="fas fa-shopping-cart text-white/20 text-8xl absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform"></i>
+          <i class="fas fa-shopping-cart text-white text-5xl relative z-10"></i>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-3" data-key="project1-title">E-commerce Web Ilovasi</h3>
+          <p class="text-muted-foreground text-sm mb-4 leading-relaxed" data-key="project1-desc">
+            To'liq e-commerce platformasi - foydalanuvchi ro'yxatdan o'tishi, login, mahsulotlar ro'yxati va buyurtma berish imkoniyatlari bilan.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-2.5 py-1 rounded-md bg-primary/10 text-primary text-xs font-medium">Java</span>
+            <span class="px-2.5 py-1 rounded-md bg-accent/10 text-accent text-xs font-medium">JSP</span>
+            <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-medium">PostgreSQL</span>
+          </div>
+          <a href="https://github.com/imomjon01/E-commerce" target="_blank" class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+            <span data-key="view-project">Loyihani ko'rish</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="bg-card rounded-2xl overflow-hidden border border-border card-hover fade-in group">
+        <div class="relative h-48 bg-gradient-to-br from-purple-500 via-pink-500 to-red-400 flex items-center justify-center overflow-hidden">
+          <i class="fas fa-graduation-cap text-white/20 text-8xl absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform"></i>
+          <i class="fas fa-graduation-cap text-white text-5xl relative z-10"></i>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-3" data-key="project2-title">Ipe-School Boshqaruv Tizimi</h3>
+          <p class="text-muted-foreground text-sm mb-4 leading-relaxed" data-key="project2-desc">
+            Ta'lim markazi uchun boshqaruv tizimi - talabalar, o'qituvchilar va kurslarni boshqarish uchun.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-2.5 py-1 rounded-md bg-primary/10 text-primary text-xs font-medium">Spring Boot</span>
+            <span class="px-2.5 py-1 rounded-md bg-accent/10 text-accent text-xs font-medium">REST API</span>
+            <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-medium">PostgreSQL</span>
+          </div>
+          <a href="https://github.com/imomjon01/IPE_SCHOOL" target="_blank" class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+            <span data-key="view-project">Loyihani ko'rish</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="bg-card rounded-2xl overflow-hidden border border-border card-hover fade-in group">
+        <div class="relative h-48 bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 flex items-center justify-center overflow-hidden">
+          <i class="fas fa-tasks text-white/20 text-8xl absolute -right-4 -bottom-4 group-hover:scale-110 transition-transform"></i>
+          <i class="fas fa-tasks text-white text-5xl relative z-10"></i>
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-xl mb-3" data-key="project3-title">Trello Kloni</h3>
+          <p class="text-muted-foreground text-sm mb-4 leading-relaxed" data-key="project3-desc">
+            Trello-ga o'xshash task management web ilovasi. MVC arxitekturasi va CRUD operatsiyalari bilan.
+          </p>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-2.5 py-1 rounded-md bg-primary/10 text-primary text-xs font-medium">Spring MVC</span>
+            <span class="px-2.5 py-1 rounded-md bg-accent/10 text-accent text-xs font-medium">JSP</span>
+            <span class="px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-medium">PostgreSQL</span>
+          </div>
+          <a href="https://github.com/imomjon01/Trello_Project" target="_blank" class="inline-flex items-center gap-2 text-primary font-medium hover:gap-3 transition-all">
+            <span data-key="view-project">Loyihani ko'rish</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="py-20 sm:py-28 px-4 bg-muted/50">
+  <div class="container mx-auto max-w-4xl">
+    <div class="text-center mb-16 fade-in">
+      <span class="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+        <i class="fas fa-graduation-cap mr-2"></i>O'qish
+      </span>
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold" data-key="education-title">Ta'lim</h2>
+    </div>
+
+    <div class="space-y-6">
+      <!-- Education 1 -->
+      <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border card-hover fade-in relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full"></div>
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-university text-white text-xl"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+              <h3 class="font-bold text-lg sm:text-xl" data-key="edu1-title">Kompyuter fanlari va dasturiy ta'minot muhandisligi bakalavri</h3>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted text-sm font-medium whitespace-nowrap">
+                <i class="fas fa-calendar text-primary text-xs"></i>
+                2022 - 2027
+              </span>
+            </div>
+            <p class="text-primary font-semibold mb-2" data-key="edu1-school">O'zbekiston Milliy Universiteti</p>
+            <p class="text-muted-foreground text-sm" data-key="edu1-details">Amaliy matematika va intellektual texnologiyalar fakulteti (Onlayn dastur)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education 2 -->
+      <div class="bg-card rounded-2xl p-6 sm:p-8 border border-border card-hover fade-in relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-full"></div>
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-accent to-cyan-400 flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-laptop-code text-white text-xl"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+              <h3 class="font-bold text-lg sm:text-xl" data-key="edu2-title">Java Backend Development</h3>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-muted text-sm font-medium whitespace-nowrap">
+                <i class="fas fa-calendar text-accent text-xs"></i>
+                2024 - 2025
+              </span>
+            </div>
+            <p class="text-accent font-semibold mb-2">PDP Academy</p>
+            <p class="text-muted-foreground text-sm leading-relaxed" data-key="edu2-desc">
+              Java Core, OOP, Spring Boot, RESTful APIs, PostgreSQL va real-world loyihalar yaratishni o'z ichiga olgan keng qamrovli Java Backend kursi muvaffaqiyatli tugatildi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 sm:py-28 px-4">
+  <div class="container mx-auto max-w-4xl">
+    <div class="text-center mb-16 fade-in">
+      <span class="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
+        <i class="fas fa-paper-plane mr-2"></i>Aloqa
+      </span>
+      <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-bold mb-4" data-key="contact-title">Bog'lanish</h2>
+      <p class="text-muted-foreground text-lg max-w-xl mx-auto" data-key="contact-desc">
+        Yangi loyihalar va hamkorlik imkoniyatlari haqida gaplashishga tayyorman. Menga xabar yuboring!
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4 fade-in">
+      <a href="mailto:imomjon.dev@gmail.com" class="flex items-center gap-4 bg-card p-5 rounded-2xl border border-border card-hover group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <i class="fas fa-envelope text-white text-xl"></i>
+        </div>
+        <div>
+          <p class="text-sm text-muted-foreground">Email</p>
+          <p class="font-semibold">imomjon.dev@gmail.com</p>
+        </div>
+      </a>
+
+      <a href="tel:+998945690569" class="flex items-center gap-4 bg-card p-5 rounded-2xl border border-border card-hover group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <i class="fas fa-phone text-white text-xl"></i>
+        </div>
+        <div>
+          <p class="text-sm text-muted-foreground">Telefon</p>
+          <p class="font-semibold">+998 94 569 05 69</p>
+        </div>
+      </a>
+
+      <a href="https://t.me/Imomjon" target="_blank" class="flex items-center gap-4 bg-card p-5 rounded-2xl border border-border card-hover group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#0088cc] to-[#00aaff] flex items-center justify-center group-hover:scale-110 transition-transform">
+          <i class="fab fa-telegram text-white text-2xl"></i>
+        </div>
+        <div>
+          <p class="text-sm text-muted-foreground">Telegram</p>
+          <p class="font-semibold">@Imomjon</p>
+        </div>
+      </a>
+
+      <a href="https://instagram.com/_imomjon" target="_blank" class="flex items-center gap-4 bg-card p-5 rounded-2xl border border-border card-hover group">
+        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] flex items-center justify-center group-hover:scale-110 transition-transform">
+          <i class="fab fa-instagram text-white text-2xl"></i>
+        </div>
+        <div>
+          <p class="text-sm text-muted-foreground">Instagram</p>
+          <p class="font-semibold">@_imomjon</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-card border-t border-border py-8 px-4">
+  <div class="container mx-auto max-w-6xl">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-lg font-bold">
+          I
+        </div>
+        <div>
+          <p class="font-bold">Imomjon Riskiboev</p>
+          <p class="text-sm text-muted-foreground">Java Backend Developer</p>
+        </div>
+      </div>
+
+      <p class="text-muted-foreground text-sm text-center">
+        © 2025 Imomjon Riskiboev. <span data-key="footer-rights">Barcha huquqlar himoyalangan.</span>
+      </p>
+
+      <div class="flex gap-3">
+        <a href="https://github.com/imomjon01" target="_blank" class="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://t.me/Imomjon" target="_blank" class="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
+          <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://instagram.com/_imomjon" target="_blank" class="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="mailto:imomjon.dev@gmail.com" class="w-10 h-10 rounded-xl bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Service Worker registration for caching
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(() => {
+        // Service worker registration failed, use fallback caching
+        console.log('Using fallback caching');
+      });
+    });
+  }
+
+  // Fallback: Cache page data in localStorage
+  const CACHE_KEY = 'imomjon_portfolio_cache';
+  const CACHE_VERSION = 'v1.0.0';
+
+  function cachePageData() {
+    const cacheData = {
+      version: CACHE_VERSION,
+      timestamp: Date.now(),
+      theme: localStorage.getItem('theme') || 'light',
+      language: localStorage.getItem('language') || 'uz',
+      visited: true
+    };
+    localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData));
+  }
+
+  function loadCachedData() {
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const data = JSON.parse(cached);
+      if (data.theme) {
+        if (data.theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      }
+      if (data.language) {
+        currentLanguage = data.language;
+      }
+      return data;
+    }
+    return null;
+  }
+
+  // Load cached preferences immediately
+  const cachedData = loadCachedData();
+
+  // Translations
+  const translations = {
+    uz: {
+      'logo': 'Imomjon.dev',
+      'nav-about': 'Men haqimda',
+      'nav-skills': 'Ko\'nikmalar',
+      'nav-projects': 'Loyihalar',
+      'nav-education': 'Ta\'lim',
+      'nav-contact': 'Aloqa',
+      'download-cv': 'CV yuklab olish',
+      'hero-name': 'Imomjon Riskiboev',
+      'hero-title': 'Java Backend Developer',
+      'hero-description': 'PDP Academy bitiruvchisi. Spring Boot, RESTful APIs va PostgreSQL bilan tajribali. Real-world muammolarni kod orqali yechishni yaxshi ko\'raman.',
+      'contact-me': 'Bog\'lanish',
+      'about-title': 'Men haqimda',
+      'about-text1': 'Men ishtiyoqli va motivatsiyali Java Backend Developeriman. Yaqinda PDP Academy\'da backend development kursini muvaffaqiyatli tugatdim. Java, Spring Boot, JPA va PostgreSQL yordamida RESTful API\'lar yaratishda amaliy tajribaga egaman.',
+      'about-text2': 'Real-world muammolarni kod orqali yechishni yaxshi ko\'raman va o\'z ko\'nikmalarimni doimiy ravishda rivojlantirishga intilaman. Maqsadim professional software engineer bo\'lish va ta\'sirli loyihalarga hissa qo\'shishdir.',
+      'location': 'Toshkent, O\'zbekiston',
+      'skills-title': 'Ko\'nikmalar va Texnologiyalar',
+      'core-tech': 'Asosiy Texnologiyalar',
+      'databases': 'Ma\'lumotlar bazalari',
+      'apis-tools': 'API va Vositalar',
+      'devops-other': 'DevOps va Boshqalar',
+      'projects-title': 'Shaxsiy Loyihalar',
+      'project1-title': 'E-commerce Web Ilovasi',
+      'project1-desc': 'To\'liq e-commerce platformasi - foydalanuvchi ro\'yxatdan o\'tishi, login, mahsulotlar ro\'yxati va buyurtma berish imkoniyatlari bilan.',
+      'project2-title': 'Ipe-School Boshqaruv Tizimi',
+      'project2-desc': 'Ta\'lim markazi uchun boshqaruv tizimi - talabalar, o\'qituvchilar va kurslarni boshqarish uchun.',
+      'project3-title': 'Trello Kloni',
+      'project3-desc': 'Trello-ga o\'xshash task management web ilovasi. MVC arxitekturasi va CRUD operatsiyalari bilan.',
+      'view-project': 'Loyihani ko\'rish',
+      'education-title': 'Ta\'lim',
+      'edu1-title': 'Kompyuter fanlari va dasturiy ta\'minot muhandisligi bakalavri',
+      'edu1-school': 'O\'zbekiston Milliy Universiteti',
+      'edu1-details': 'Amaliy matematika va intellektual texnologiyalar fakulteti (Onlayn dastur)',
+      'edu2-title': 'Java Backend Development',
+      'edu2-desc': 'Java Core, OOP, Spring Boot, RESTful APIs, PostgreSQL va real-world loyihalar yaratishni o\'z ichiga olgan keng qamrovli Java Backend kursi muvaffaqiyatli tugatildi.',
+      'contact-title': 'Bog\'lanish',
+      'contact-desc': 'Yangi loyihalar va hamkorlik imkoniyatlari haqida gaplashishga tayyorman. Menga xabar yuboring!',
+      'footer-rights': 'Barcha huquqlar himoyalangan.'
+    },
+    en: {
+      'logo': 'Imomjon.dev',
+      'nav-about': 'About',
+      'nav-skills': 'Skills',
+      'nav-projects': 'Projects',
+      'nav-education': 'Education',
+      'nav-contact': 'Contact',
+      'download-cv': 'Download CV',
+      'hero-name': 'Imomjon Riskiboev',
+      'hero-title': 'Java Backend Developer',
+      'hero-description': 'PDP Academy graduate. Experienced with Spring Boot, RESTful APIs and PostgreSQL. I love solving real-world problems through code.',
+      'contact-me': 'Contact Me',
+      'about-title': 'About Me',
+      'about-text1': 'I am a passionate and motivated Java Backend Developer. I recently successfully completed a backend development course at PDP Academy. I have practical experience in creating RESTful APIs using Java, Spring Boot, JPA and PostgreSQL.',
+      'about-text2': 'I love solving real-world problems through code and strive to continuously develop my skills. My goal is to become a professional software engineer and contribute to impactful projects.',
+      'location': 'Tashkent, Uzbekistan',
+      'skills-title': 'Skills & Technologies',
+      'core-tech': 'Core Technologies',
+      'databases': 'Databases',
+      'apis-tools': 'APIs & Tools',
+      'devops-other': 'DevOps & Other',
+      'projects-title': 'Personal Projects',
+      'project1-title': 'E-commerce Web Application',
+      'project1-desc': 'Complete e-commerce platform with user registration, login, product listings and order placement capabilities.',
+      'project2-title': 'Ipe-School Management System',
+      'project2-desc': 'Management system for educational center - for managing students, teachers and courses.',
+      'project3-title': 'Trello Clone',
+      'project3-desc': 'Trello-like task management web application. With MVC architecture and CRUD operations.',
+      'view-project': 'View Project',
+      'education-title': 'Education',
+      'edu1-title': 'Bachelor of Computer Science and Software Engineering',
+      'edu1-school': 'National University of Uzbekistan',
+      'edu1-details': 'Faculty of Applied Mathematics and Intellectual Technologies (Online Program)',
+      'edu2-title': 'Java Backend Development',
+      'edu2-desc': 'Successfully completed comprehensive Java Backend course including Java Core, OOP, Spring Boot, RESTful APIs, PostgreSQL and creating real-world projects.',
+      'contact-title': 'Get In Touch',
+      'contact-desc': 'I\'m ready to discuss new projects and collaboration opportunities. Send me a message!',
+      'footer-rights': 'All rights reserved.'
+    },
+    ru: {
+      'logo': 'Imomjon.dev',
+      'nav-about': 'Обо мне',
+      'nav-skills': 'Навыки',
+      'nav-projects': 'Проекты',
+      'nav-education': 'Образование',
+      'nav-contact': 'Контакты',
+      'download-cv': 'Скачать CV',
+      'hero-name': 'Имомжон Рискибоев',
+      'hero-title': 'Java Backend Разработчик',
+      'hero-description': 'Выпускник PDP Academy. Опытен в Spring Boot, RESTful APIs и PostgreSQL. Люблю решать реальные проблемы с помощью кода.',
+      'contact-me': 'Связаться',
+      'about-title': 'Обо мне',
+      'about-text1': 'Я увлеченный и мотивированный Java Backend разработчик. Недавно успешно завершил курс backend разработки в PDP Academy. У меня есть практический опыт создания RESTful API с использованием Java, Spring Boot, JPA и PostgreSQL.',
+      'about-text2': 'Я люблю решать реальные проблемы с помощью кода и стремлюсь постоянно развивать свои навыки. Моя цель - стать профессиональным инженером-программистом и внести вклад в значимые проекты.',
+      'location': 'Ташкент, Узбекистан',
+      'skills-title': 'Навыки и Технологии',
+      'core-tech': 'Основные Технологии',
+      'databases': 'Базы данных',
+      'apis-tools': 'API и Инструменты',
+      'devops-other': 'DevOps и Другое',
+      'projects-title': 'Личные Проекты',
+      'project1-title': 'E-commerce Веб-приложение',
+      'project1-desc': 'Полная e-commerce платформа с регистрацией пользователей, входом в систему, списками товаров и возможностями размещения заказов.',
+      'project2-title': 'Система управления Ipe-School',
+      'project2-desc': 'Система управления для образовательного центра - для управления студентами, преподавателями и курсами.',
+      'project3-title': 'Клон Trello',
+      'project3-desc': 'Веб-приложение для управления задачами, похожее на Trello. С архитектурой MVC и CRUD операциями.',
+      'view-project': 'Посмотреть проект',
+      'education-title': 'Образование',
+      'edu1-title': 'Бакалавр компьютерных наук и программной инженерии',
+      'edu1-school': 'Национальный университет Узбекистана',
+      'edu1-details': 'Факультет прикладной математики и интеллектуальных технологий (Онлайн программа)',
+      'edu2-title': 'Java Backend Разработка',
+      'edu2-desc': 'Успешно завершил комплексный курс Java Backend, включающий Java Core, ООП, Spring Boot, RESTful APIs, PostgreSQL и создание реальных проектов.',
+      'contact-title': 'Связаться',
+      'contact-desc': 'Готов обсудить новые проекты и возможности сотрудничества. Отправьте мне сообщение!',
+      'footer-rights': 'Все права защищены.'
+    }
+  };
+
+  // Current language
+  let currentLanguage = cachedData?.language || 'uz';
+
+  // Language switching function
+  function changeLanguage(lang) {
+    currentLanguage = lang;
+    document.getElementById('currentLang').textContent = lang.toUpperCase();
+    document.getElementById('languageDropdown').classList.remove('active');
+
+    // Update all translatable elements
+    const elements = document.querySelectorAll('[data-key]');
+    elements.forEach(element => {
+      const key = element.getAttribute('data-key');
+      if (translations[lang] && translations[lang][key]) {
+        element.textContent = translations[lang][key];
+      }
+    });
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+
+    // Save to localStorage
+    localStorage.setItem('language', lang);
+    cachePageData();
+  }
+
+  // Dark mode functionality
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const html = document.documentElement;
+
+  darkModeToggle.addEventListener('click', () => {
+    html.classList.toggle('dark');
+    const isDark = html.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    cachePageData();
+  });
+
+  // Language dropdown toggle
+  document.getElementById('languageBtn').addEventListener('click', (e) => {
+    e.stopPropagation();
+    document.getElementById('languageDropdown').classList.toggle('active');
+  });
+
+  // Close language dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#languageBtn') && !e.target.closest('#languageDropdown')) {
+      document.getElementById('languageDropdown').classList.remove('active');
+    }
+  });
+
+  // Mobile menu functionality
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const closeMobileMenu = document.getElementById('closeMobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+  function openMobileMenu() {
+    mobileMenu.classList.add('active');
+    mobileMenuOverlay.style.opacity = '1';
+    mobileMenuOverlay.style.visibility = 'visible';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenuFn() {
+    mobileMenu.classList.remove('active');
+    mobileMenuOverlay.style.opacity = '0';
+    mobileMenuOverlay.style.visibility = 'hidden';
+    document.body.style.overflow = '';
+  }
+
+  mobileMenuBtn.addEventListener('click', openMobileMenu);
+  closeMobileMenu.addEventListener('click', closeMobileMenuFn);
+  mobileMenuOverlay.addEventListener('click', closeMobileMenuFn);
+
+  // Close mobile menu when clicking on links
+  mobileMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', closeMobileMenuFn);
+  });
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        const headerOffset = 80;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Fade in animation on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Page loader
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.getElementById('pageLoader').classList.add('hidden');
+    }, 500);
+
+    // Initialize with saved/default language
+    changeLanguage(currentLanguage);
+
+    // Cache page data
+    cachePageData();
+  });
+
+  // Header scroll effect
+  let lastScrollY = window.scrollY;
+  const header = document.querySelector('header');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+      header.style.boxShadow = 'none';
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>
+</body>
+</html>
