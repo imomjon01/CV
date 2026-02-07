@@ -12,14 +12,22 @@ const translations = {
         'nav-contact': 'Aloqa',
         'download-cv': 'CV yuklab olish',
 
+        'cv-choose': 'CV tilini tanlash',
+        'cv-uz': 'CV (O‘zbekcha) — PDF',
+        'cv-en': 'CV (English) — PDF',
+        'cv-ru': 'CV (Русский) — PDF',
+
         'hero-name': 'Imomjon Risqiboyev',
         'hero-title': 'Java Backend Developer',
-        'hero-description': 'Tajribali Java Backend Developer. Spring Boot, REST API va PostgreSQL asosida ishonchli backend tizimlar yarataman. Real loyihalarda ishlaganman va kod sifatiga katta e’tibor beraman.',
+        'hero-description':
+            'Tajribali Java Backend Developer. Spring Boot, REST API va PostgreSQL asosida ishonchli backend tizimlar yarataman. Real loyihalarda ishlaganman va kod sifatiga katta e’tibor beraman.',
         'contact-me': 'Bog‘lanish',
 
         'about-title': 'Men haqimda',
-        'about-text1': 'Men Java Backend Developer sifatida Spring Boot asosida REST API lar, ma’lumotlar bazasi dizayni va integratsiyalar bilan ishlayman. Loyihalarda arxitektura, toza kod va barqarorlikka e’tibor beraman.',
-        'about-text2': 'Real biznes vazifalarni texnik yechimga aylantirish, performance va xavfsizlik kabi jihatlarni hisobga olish menga yoqadi. Maqsadim — kuchli software engineer bo‘lib, foydali va ta’sirli mahsulotlarga hissa qo‘shish.',
+        'about-text1':
+            'Men Java Backend Developer sifatida Spring Boot asosida REST API lar, ma’lumotlar bazasi dizayni va integratsiyalar bilan ishlayman. Loyihalarda arxitektura, toza kod va barqarorlikka e’tibor beraman.',
+        'about-text2':
+            'Real biznes vazifalarni texnik yechimga aylantirish, performance va xavfsizlik kabi jihatlarni hisobga olish menga yoqadi. Maqsadim — kuchli software engineer bo‘lib, foydali va ta’sirli mahsulotlarga hissa qo‘shish.',
         'about-metric1-label': 'Yo‘nalish',
         'about-metric1-value': 'Backend & API',
         'about-metric2-label': 'Stack',
@@ -75,14 +83,22 @@ const translations = {
         'nav-contact': 'Contact',
         'download-cv': 'Download CV',
 
+        'cv-choose': 'Choose CV language',
+        'cv-uz': 'CV (Uzbek) — PDF',
+        'cv-en': 'CV (English) — PDF',
+        'cv-ru': 'CV (Russian) — PDF',
+
         'hero-name': 'Imomjon Risqiboyev',
         'hero-title': 'Java Backend Developer',
-        'hero-description': 'Experienced Java Backend Developer. I build reliable backend systems with Spring Boot, REST APIs and PostgreSQL. I’ve worked on real projects and value clean, maintainable code.',
+        'hero-description':
+            'Experienced Java Backend Developer. I build reliable backend systems with Spring Boot, REST APIs and PostgreSQL. I’ve worked on real projects and value clean, maintainable code.',
         'contact-me': 'Contact Me',
 
         'about-title': 'About Me',
-        'about-text1': 'As a Java Backend Developer, I work with Spring Boot-based REST APIs, database design and integrations. I focus on architecture, clean code and stability.',
-        'about-text2': 'I enjoy turning real business needs into technical solutions and considering performance and security. My goal is to grow as a strong software engineer and contribute to impactful products.',
+        'about-text1':
+            'As a Java Backend Developer, I work with Spring Boot-based REST APIs, database design and integrations. I focus on architecture, clean code and stability.',
+        'about-text2':
+            'I enjoy turning real business needs into technical solutions and considering performance and security. My goal is to grow as a strong software engineer and contribute to impactful products.',
         'about-metric1-label': 'Focus',
         'about-metric1-value': 'Backend & API',
         'about-metric2-label': 'Stack',
@@ -138,14 +154,22 @@ const translations = {
         'nav-contact': 'Контакты',
         'download-cv': 'Скачать CV',
 
+        'cv-choose': 'Выбрать язык CV',
+        'cv-uz': 'CV (Узбекский) — PDF',
+        'cv-en': 'CV (English) — PDF',
+        'cv-ru': 'CV (Русский) — PDF',
+
         'hero-name': 'Имомжон Рисқибойев',
         'hero-title': 'Java Backend Developer',
-        'hero-description': 'Опытный Java Backend разработчик. Создаю надёжные backend-системы на Spring Boot, REST API и PostgreSQL. Работал над реальными проектами и ценю чистый, поддерживаемый код.',
+        'hero-description':
+            'Опытный Java Backend разработчик. Создаю надёжные backend-системы на Spring Boot, REST API и PostgreSQL. Работал над реальными проектами и ценю чистый, поддерживаемый код.',
         'contact-me': 'Связаться',
 
         'about-title': 'Обо мне',
-        'about-text1': 'Как Java Backend разработчик я работаю с REST API на Spring Boot, проектированием баз данных и интеграциями. Делаю упор на архитектуру, чистый код и стабильность.',
-        'about-text2': 'Мне нравится превращать бизнес-задачи в технические решения, учитывая производительность и безопасность. Цель — развиваться как сильный software engineer и участвовать в значимых продуктах.',
+        'about-text1':
+            'Как Java Backend разработчик я работаю с REST API на Spring Boot, проектированием баз данных и интеграциями. Делаю упор на архитектуру, чистый код и стабильность.',
+        'about-text2':
+            'Мне нравится превращать бизнес-задачи в технические решения, учитывая производительность и безопасность. Цель — развиваться как сильный software engineer и участвовать в значимых продуктах.',
         'about-metric1-label': 'Фокус',
         'about-metric1-value': 'Backend & API',
         'about-metric2-label': 'Стек',
@@ -201,8 +225,44 @@ function applyTranslations(lang) {
     });
 }
 
+/* =========================
+   CV (3 languages)
+========================= */
+const CV_FILES = {
+    uz: { href: '/files/Imomjon_Risqiboyev_UZ.pdf', name: 'Imomjon_Risqiboyev_UZ.pdf' },
+    en: { href: '/files/Imomjon_Risqiboyev_EN.pdf', name: 'Imomjon_Risqiboyev_EN.pdf' },
+    ru: { href: '/files/Imomjon_Risqiboyev_RU.pdf', name: 'Imomjon_Risqiboyev_RU.pdf' }
+};
+
+function setCvLinks(lang) {
+    const cv = CV_FILES[lang] || CV_FILES.uz;
+
+    const desktopLink = document.getElementById('cvDownloadLink');
+    const mobileLink = document.getElementById('cvDownloadLinkMobile');
+
+    if (desktopLink) {
+        desktopLink.href = cv.href;
+        desktopLink.setAttribute('download', cv.name);
+    }
+    if (mobileLink) {
+        mobileLink.href = cv.href;
+        mobileLink.setAttribute('download', cv.name);
+    }
+}
+
+function downloadCvByLang(lang) {
+    const cv = CV_FILES[lang] || CV_FILES.uz;
+    const a = document.createElement('a');
+    a.href = cv.href;
+    a.download = cv.name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+}
+
 function changeLanguage(lang) {
     currentLanguage = lang;
+
     const currentLangEl = document.getElementById('currentLang');
     const dd = document.getElementById('languageDropdown');
 
@@ -212,6 +272,9 @@ function changeLanguage(lang) {
     document.documentElement.lang = lang;
     applyTranslations(lang);
     localStorage.setItem('lang', lang);
+
+    // CV linklarni ham shu tilga moslab qo'yamiz
+    setCvLinks(lang);
 }
 
 /* =========================
@@ -236,7 +299,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const languageDropdown = document.getElementById('languageDropdown');
 
     if (languageBtn && languageDropdown) {
-        languageBtn.addEventListener('click', () => languageDropdown.classList.toggle('active'));
+        languageBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            languageDropdown.classList.toggle('active');
+        });
 
         document.addEventListener('click', (e) => {
             if (!e.target.closest('#languageBtn') && !e.target.closest('#languageDropdown')) {
@@ -244,7 +310,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // language item clicks
         document.querySelectorAll('.lang-item').forEach(btn => {
             btn.addEventListener('click', () => changeLanguage(btn.dataset.lang));
         });
@@ -281,7 +346,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+    // CV dropdowns
+    const cvLangBtn = document.getElementById('cvLangBtn');
+    const cvLangDropdown = document.getElementById('cvLangDropdown');
+
+    if (cvLangBtn && cvLangDropdown) {
+        cvLangBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            cvLangDropdown.classList.toggle('active');
+        });
+    }
+
+    const cvLangBtnMobile = document.getElementById('cvLangBtnMobile');
+    const cvLangDropdownMobile = document.getElementById('cvLangDropdownMobile');
+
+    if (cvLangBtnMobile && cvLangDropdownMobile) {
+        cvLangBtnMobile.addEventListener('click', (e) => {
+            e.stopPropagation();
+            cvLangDropdownMobile.classList.toggle('active');
+        });
+    }
+
+    // CV item click -> darrov download
+    document.querySelectorAll('.cv-item').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const cvLang = btn.dataset.cv; // uz/en/ru
+            if (cvLangDropdown) cvLangDropdown.classList.remove('active');
+            if (cvLangDropdownMobile) cvLangDropdownMobile.classList.remove('active');
+            downloadCvByLang(cvLang);
+        });
+    });
+
+    // Tashqariga bosilganda CV dropdownlarni yopish
+    document.addEventListener('click', (e) => {
+        if (cvLangDropdown && !e.target.closest('#cvLangBtn') && !e.target.closest('#cvLangDropdown')) {
+            cvLangDropdown.classList.remove('active');
+        }
+        if (cvLangDropdownMobile && !e.target.closest('#cvLangBtnMobile') && !e.target.closest('#cvLangDropdownMobile')) {
+            cvLangDropdownMobile.classList.remove('active');
+        }
+    });
+
     // Init language
     const savedLang = localStorage.getItem('lang') || 'uz';
     changeLanguage(savedLang);
+
+    // Init CV links
+    setCvLinks(savedLang);
 });

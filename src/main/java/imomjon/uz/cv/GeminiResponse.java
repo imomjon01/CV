@@ -1,22 +1,18 @@
 package imomjon.uz.cv;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GeminiResponse {
-
     public List<Candidate> candidates;
 
     public String firstTextOrNull() {
-
         if (candidates == null || candidates.isEmpty()) return null;
-
         Candidate c = candidates.get(0);
-
         if (c.content == null || c.content.parts == null || c.content.parts.isEmpty())
             return null;
-
         return c.content.parts.get(0).text;
     }
 

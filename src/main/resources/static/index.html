@@ -39,7 +39,7 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind config (JS faylga ham ko'chirish mumkin, hozir shu yerda qoldirdim) -->
+  <!-- Tailwind config -->
   <script>
     tailwind.config = {
       darkMode: 'class',
@@ -119,12 +119,35 @@
           <i class="fas fa-sun hidden dark:block"></i>
         </button>
 
-        <!-- CV -->
-        <a href="/files/CV.pdf" download="Imomjon_CV.pdf"
-           class="hidden md:inline-flex items-center space-x-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors shadow-soft">
-          <i class="fas fa-download"></i>
-          <span data-key="download-cv">Download CV</span>
-        </a>
+        <!-- CV (Desktop) -->
+        <div class="hidden md:flex items-center relative">
+          <a id="cvDownloadLink"
+             href="/files/Imomjon_Risqiboyev_UZ.pdf"
+             download="Imomjon_Risqiboyev_UZ.pdf"
+             class="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors shadow-soft">
+            <i class="fas fa-download"></i>
+            <span data-key="download-cv">Download CV</span>
+          </a>
+
+          <button id="cvLangBtn"
+                  class="ml-2 p-2 rounded-lg bg-muted hover:bg-accent transition-colors border border-border"
+                  aria-label="CV language">
+            <i class="fas fa-chevron-down text-xs"></i>
+          </button>
+
+          <div id="cvLangDropdown"
+               class="language-dropdown absolute right-0 top-full mt-2 bg-card border border-border rounded-lg shadow-soft py-2 min-w-[220px]">
+            <button class="cv-item block w-full text-left px-4 py-2 text-sm hover:bg-muted transition-colors" data-cv="uz">
+              <span data-key="cv-uz">CV (O‘zbekcha) — PDF</span>
+            </button>
+            <button class="cv-item block w-full text-left px-4 py-2 text-sm hover:bg-muted transition-colors" data-cv="en">
+              <span data-key="cv-en">CV (English) — PDF</span>
+            </button>
+            <button class="cv-item block w-full text-left px-4 py-2 text-sm hover:bg-muted transition-colors" data-cv="ru">
+              <span data-key="cv-ru">CV (Русский) — PDF</span>
+            </button>
+          </div>
+        </div>
 
         <!-- Mobile -->
         <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg bg-muted hover:bg-accent transition-colors border border-border">
@@ -143,6 +166,7 @@
           <i class="fas fa-times"></i>
         </button>
       </div>
+
       <ul class="space-y-2">
         <li><a href="#about" class="block py-2 text-muted-foreground hover:text-primary transition-colors" data-key="nav-about">About</a></li>
         <li><a href="#skills" class="block py-2 text-muted-foreground hover:text-primary transition-colors" data-key="nav-skills">Skills</a></li>
@@ -152,13 +176,37 @@
         <li><a href="#contact" class="block py-2 text-muted-foreground hover:text-primary transition-colors" data-key="nav-contact">Contact</a></li>
       </ul>
 
-      <div class="mt-8">
-        <a href="/files/CV.pdf" download="Imomjon_CV.pdf"
-           class="flex items-center space-x-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors shadow-soft">
+      <!-- CV (Mobile) -->
+      <div class="mt-8 relative">
+        <a id="cvDownloadLinkMobile"
+           href="/files/Imomjon_Risqiboyev_UZ.pdf"
+           download="Imomjon_Risqiboyev_UZ.pdf"
+           class="flex items-center justify-center space-x-2 bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors shadow-soft">
           <i class="fas fa-download"></i>
           <span data-key="download-cv">Download CV</span>
         </a>
+
+        <button id="cvLangBtnMobile"
+                class="mt-2 w-full flex items-center justify-center gap-2 p-2 rounded-lg bg-muted hover:bg-accent transition-colors border border-border">
+          <i class="fas fa-language"></i>
+          <span data-key="cv-choose">CV tilini tanlash</span>
+          <i class="fas fa-chevron-down text-xs"></i>
+        </button>
+
+        <div id="cvLangDropdownMobile"
+             class="language-dropdown mt-2 bg-card border border-border rounded-lg shadow-soft py-2">
+          <button class="cv-item block w-full text-left px-4 py-2 text-sm hover:bg-muted transition-colors" data-cv="uz">
+            <span data-key="cv-uz">CV (O‘zbekcha) — PDF</span>
+          </button>
+          <button class="cv-item block w-full text-left px-4 py-2 text-sm hover:bg-muted transition-colors" data-cv="en">
+            <span data-key="cv-en">CV (English) — PDF</span>
+          </button>
+          <button class="cv-item block w-full text-left px-4 py-2 text-sm hover:bg-muted transition-colors" data-cv="ru">
+            <span data-key="cv-ru">CV (Русский) — PDF</span>
+          </button>
+        </div>
       </div>
+
     </div>
   </div>
 </header>

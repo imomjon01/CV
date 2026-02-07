@@ -1,4 +1,5 @@
 package imomjon.uz.cv;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.net.URI;
@@ -25,40 +26,31 @@ public class GeminiClient {
     }
 
     public String generateText(String prompt) throws Exception {
-
         String url = "https://generativelanguage.googleapis.com/v1beta/models/"
                 + model + ":generateContent?key=" + apiKey;
-
         String json = """
-        {
-          "contents": [{
-            "role": "user",
-            "parts": [{"text": %s }]
-          }]
-        }
-        """.formatted(mapper.writeValueAsString(prompt));
-
+                {
+                  "contents": [{
+                    "role": "user",
+                    "parts": [{"text": %s }]
+                  }]
+                }
+                """.formatted(mapper.writeValueAsString(prompt));
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(json, StandardCharsets.UTF_8))
                 .build();
-
         HttpResponse<String> resp = http.send(req,
                 HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-
         if (resp.statusCode() / 100 != 2) {
             throw new RuntimeException("Gemini error: " + resp.body());
         }
-
         GeminiResponse parsed = mapper.readValue(resp.body(), GeminiResponse.class);
-
         String text = parsed.firstTextOrNull();
-
         if (text == null || text.isBlank()) {
             return "Javob topilmadi 😅";
         }
-
         return text.trim();
     }
 }
