@@ -111,7 +111,7 @@ public class TelegramBotRunner implements ApplicationRunner {
             sendReportToAdmin(u, userText, answer);
 
         } catch (Exception e) {
-            String fallback = "Afsus, hozir limit tugab qolgan bo‘lishi mumkin. Birozdan so‘ng yana urinib ko‘ring.";
+            String fallback = "Kechirasiz, hozircha foydalanish limiti tugab qolganga o‘xshaydi. Iltimos, birozdan so‘ng yana urinib ko‘ring. Savollar yoki muammolar bo‘lsa, @Imomjon sizga yordam berishi mumkin!";
             sendText(chatId, fallback);
             sendReportToAdmin(u, userText, fallback);
         }
@@ -145,7 +145,8 @@ public class TelegramBotRunner implements ApplicationRunner {
 
         String report =
                 "Ismi: " + userDisplay(u) + "\n" +
-                        "Nima yozgani: " + userText + "\n\n" +
+                        "Nima yozgani: " + userText + "\n" +
+                        "ID: "+ fromChatId + "\n\n" +
                         "Bot: " + botAnswer;
 
         try {
